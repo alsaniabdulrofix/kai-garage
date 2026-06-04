@@ -6,7 +6,8 @@ Aplikasi manajemen bengkel berbasis Spring Boot.
 
 - CRUD Pelanggan
 - CRUD Kendaraan
-- Relasi Pelanggan dan Kendaraan
+- CRUD Servis
+- Riwayat Servis Kendaraan
 
 ## Teknologi
 
@@ -15,3 +16,4 @@ Aplikasi manajemen bengkel berbasis Spring Boot.
 - Spring Data JPA
 - MySQL
 - Lombok
+- Maven
