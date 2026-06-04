@@ -8,35 +8,34 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bengkel.bengkel_app.entity.Kendaraan;
-import com.bengkel.bengkel_app.service.KendaraanService;
+import com.bengkel.bengkel_app.entity.Servis;
+import com.bengkel.bengkel_app.service.ServisService;
 
 @RestController
-@RequestMapping("/api/kendaraan")
-public class KendaraanController {
+@RequestMapping("/api/servis")
+public class ServisController {
 
-    private final KendaraanService service;
+    private final ServisService service;
 
-    public KendaraanController(KendaraanService service) {
+    public ServisController(ServisService service) {
         this.service = service;
     }
 
     @GetMapping
-    public List<Kendaraan> getAll() {
+    public List<Servis> getAll() {
         return service.getAll();
     }
 
     @GetMapping("/{id}")
-    public Kendaraan getById(@PathVariable Long id) {
+    public Servis getById(@PathVariable Long id) {
         return service.getById(id);
     }
 
     @PostMapping
-    public Kendaraan create(@RequestBody Kendaraan kendaraan) {
-        return service.save(kendaraan);
+    public Servis create(@RequestBody Servis servis) {
+        return service.save(servis);
     }
 
     @DeleteMapping("/{id}")
@@ -44,10 +43,10 @@ public class KendaraanController {
         service.delete(id);
     }
 
-    @GetMapping("/search")
-    public List<Kendaraan> search(
-        @RequestParam String plat) {
+    @GetMapping("/kendaraan/{id}")
+    public List<Servis> getRiwayatServis(
+        @PathVariable Long id) {
 
-        return service.searchByPlat(plat);
+        return service.getByKendaraanId(id);
     }
 }
