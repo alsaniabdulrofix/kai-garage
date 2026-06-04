@@ -33,4 +33,11 @@ public class KendaraanService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
+    public List<Kendaraan> searchByPlat(
+        String plat) {
+
+        return repository
+                .findByNomorPolisiContaining(plat);
+    }
 }
