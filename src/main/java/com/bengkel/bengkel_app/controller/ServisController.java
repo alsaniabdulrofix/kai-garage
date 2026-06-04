@@ -42,4 +42,11 @@ public class ServisController {
     public void delete(@PathVariable Long id) {
         service.delete(id);
     }
+
+    @GetMapping("/kendaraan/{id}")
+    public List<Servis> getRiwayatServis(
+        @PathVariable Long id) {
+
+        return service.getByKendaraanId(id);
+    }
 }

@@ -33,4 +33,9 @@ public class ServisService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
+    public List<Servis> getByKendaraanId(Long kendaraanId) {
+        return repository.findByKendaraanId(kendaraanId);
+    }
+
 }
