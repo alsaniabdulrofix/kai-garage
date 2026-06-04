@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bengkel.bengkel_app.dto.InvoiceResponse;
 import com.bengkel.bengkel_app.entity.Servis;
 import com.bengkel.bengkel_app.service.ServisService;
 
@@ -48,5 +49,12 @@ public class ServisController {
         @PathVariable Long id) {
 
         return service.getByKendaraanId(id);
+    }
+
+    @GetMapping("/{id}/invoice")
+    public InvoiceResponse getInvoice(
+        @PathVariable Long id) {
+
+        return service.getInvoice(id);
     }
 }
